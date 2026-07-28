@@ -44,11 +44,13 @@ It is meant to show how I approached the project without publishing the entire l
 
 ## My role
 
-I handled the project from the original idea through testing and launch preparation. My work included deciding what information the finder should collect, organizing the game catalog, reviewing the page layouts, adding guide and creator content, setting up SEO elements, and testing the site across different screen sizes.
+My role
 
-A large part of the work was revision. I would open each build, test the actual pages, note what felt confusing or broken, and then change it. Some fixes were small, such as adjusting text contrast. Others required changing how the site loaded media or how the matching system ranked games.
+I handled the project from the original idea through testing and launch preparation. My work included deciding which questions the finder should ask, organizing the game catalog, reviewing page layouts, adding game-guide and creator content, setting up SEO elements, and testing the site across different screen sizes.
 
-I used AI-assisted development during the project, but I did not publish generated output without reviewing it. I checked the result, found problems, rewrote requirements, tested again, and kept the parts that worked.
+A large part of the work involved revision. I opened each build, tested the actual pages, recorded anything confusing or broken, and revised it. Some fixes were small, such as improving text contrast. Others required changing how the site loaded media or ranked game recommendations.
+
+I used AI-assisted development tools during the project, but every build went through my own review and testing. I identified problems, revised the requirements, tested the changes again, and kept only the parts that worked.
 
 ## A few decisions that shaped the site
 
