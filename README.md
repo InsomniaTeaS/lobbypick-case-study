@@ -38,13 +38,11 @@ This public version includes:
 - Product and design decisions
 - Testing notes
 - A screenshot from the creator directory
-- Simplified code samples for matching, mobile layout, and structured data
+- A working mini demo built with HTML, CSS, and JavaScript
 
 It is meant to show how I approached the project without publishing the entire live codebase.
 
 ## My role
-
-My role
 
 I handled the project from the original idea through testing and launch preparation. My work included deciding which questions the finder should ask, organizing the game catalog, reviewing page layouts, adding game-guide and creator content, setting up SEO elements, and testing the site across different screen sizes.
 
@@ -60,7 +58,9 @@ One early problem was that exact filtering could leave the user with no results.
 
 I separated answers into preferences and dealbreakers. Preferences affect the score. Dealbreakers remove a game completely. This made the recommendations more useful without ignoring requirements such as device support.
 
-[View the simplified matching sample](samples/weighted-matching.js)
+[Open the working finder demo](demo/index.html)
+
+[View the demo JavaScript](demo/app.js)
 
 ### I changed the mobile layout instead of only shrinking the desktop version
 
@@ -68,7 +68,9 @@ The first mobile versions were too cramped. Some controls were hard to tap, card
 
 I changed the layout to use one main column, larger touch targets, stacked actions, and shorter spacing. I also added a final mobile stylesheet so the phone-specific rules would not be overwritten by older breakpoints.
 
-[View the responsive CSS sample](samples/mobile-layout.css)
+[View the demo stylesheet](demo/styles.css)
+
+The page structure and JSON-LD are included directly in [demo/index.html](demo/index.html).
 
 ### I stopped trying to refresh media for the entire catalog
 
