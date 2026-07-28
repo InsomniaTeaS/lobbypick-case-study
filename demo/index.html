@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A small working demo of LobbyPick's Roblox game-matching approach."
+    >
+    <title>LobbyPick Finder Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "LobbyPick Finder Demo",
+        "codeRepository": "https://github.com/InsomniaTeaS/lobbypick-case-study",
+        "programmingLanguage": ["HTML", "CSS", "JavaScript"],
+        "description": "A small public demo of LobbyPick's weighted game-matching interface."
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="https://lobbypick.com" aria-label="Visit LobbyPick">
+        <img src="../assets/lobbypick-logo.svg" alt="" width="44" height="44">
+        <span>LobbyPick</span>
+      </a>
+      <span class="demo-label">Portfolio demo</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Small public version</p>
+        <h1 id="page-title">Find a Roblox game for the group.</h1>
+        <p>
+          This demo uses eight example games to show how LobbyPick separates
+          preferences from dealbreakers. The production catalog remains private.
+        </p>
+      </section>
+
+      <section class="finder" aria-labelledby="finder-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Build the lobby</p>
+            <h2 id="finder-title">What does the group need?</h2>
+          </div>
+          <button id="reset-button" class="secondary-button" type="button">
+            Reset choices
+          </button>
+        </div>
+
+        <form id="finder-form">
+          <label>
+            Players
+            <select id="party-size" name="party-size">
+              <option value="any">Any group size</option>
+              <option value="1">Playing solo</option>
+              <option value="2">Two players</option>
+              <option value="3">Three players</option>
+              <option value="4">Four players</option>
+              <option value="5">Five or more</option>
+            </select>
+          </label>
+
+          <label>
+            Mood
+            <select id="mood" name="mood">
+              <option value="any">Anything</option>
+              <option value="scary">Scary</option>
+              <option value="funny">Funny</option>
+              <option value="chill">Chill</option>
+              <option value="competitive">Competitive</option>
+              <option value="adventure">Adventure</option>
+            </select>
+          </label>
+
+          <label>
+            Device
+            <select id="device" name="device">
+              <option value="any">Any device</option>
+              <option value="mobile">Mobile</option>
+              <option value="computer">Computer</option>
+              <option value="console">Console</option>
+            </select>
+          </label>
+
+          <label class="checkbox-label">
+            <input id="free-private" name="free-private" type="checkbox">
+            <span>
+              <strong>Free private server required</strong>
+              <small>Games without one will be removed.</small>
+            </span>
+          </label>
+        </form>
+      </section>
+
+      <section class="results" aria-labelledby="results-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Ranked matches</p>
+            <h2 id="results-title">Games to try</h2>
+          </div>
+          <button id="random-button" class="primary-button" type="button">
+            Pick one for me
+          </button>
+        </div>
+
+        <p id="result-summary" class="result-summary" aria-live="polite"></p>
+
+        <div id="game-grid" class="game-grid">
+          <article
+            class="game-card"
+            data-title="DOORS"
+            data-min-players="1"
+            data-max-players="12"
+            data-moods="scary,adventure"
+            data-devices="mobile,computer,console"
+            data-private="false"
+          >
+            <div class="game-icon icon-doors" aria-hidden="true">D</div>
+            <div class="game-copy">
+              <p class="match-label">Good starting match</p>
+              <h3>DOORS</h3>
+              <p>
+                Move through a haunted hotel, learn each threat, and help the
+                group survive another room.
+              </p>
+              <ul class="tag-list" aria-label="Game details">
+                <li>1–12 players</li>
+                <li>Horror</li>
+                <li>Mobile</li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="game-card"
+            data-title="Block Tales"
+            data-min-players="1"
+            data-max-players="4"
+            data-moods="adventure,funny"
+            data-devices="mobile,computer"
+            data-private="true"
+          >
+            <div class="game-icon icon-block" aria-hidden="true">B</div>
+            <div class="game-copy">
+              <p class="match-label">Good starting match</p>
+              <h3>Block Tales</h3>
+              <p>
+                A turn-based adventure with exploration, jokes, boss fights,
+                and useful roles for a small team.
+              </p>
+              <ul class="tag-list" aria-label="Game details">
+                <li>1–4 players</li>
+                <li>Adventure</li>
+                <li>Free private</li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="game-card"
+            data-title="Epic Minigames"
+            data-min-players="1"
+            data-max-players="12"
+            data-moods="funny,competitive"
+            data-devices="mobile,computer,console"
+            data-private="true"
+          >
+            <div class="game-icon icon-epic" aria-hidden="true">E</div>
+            <div class="game-copy">
+              <p class="match-label">Good starting match</p>
+              <h3>Epic Minigames</h3>
+              <p>
+                Short rounds and simple goals make this an easy choice for a
+                mixed group that does not want a long setup.
+              </p>
+              <ul class="tag-list" aria-label="Game details">
+                <li>Large groups</li>
+                <li>Funny</li>
+                <li>Free private</li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="game-card"
+            data-title="Fisch"
+            data-min-players="1"
+            data-max-players="8"
+            data-moods="chill,adventure"
+            data-devices="mobile,computer,console"
+            data-private="false"
+          >
+            <div class="game-icon icon-fisch" aria-hidden="true">F</div>
+            <div class="game-copy">
+              <p class="match-label">Good starting match</p>
+              <h3>Fisch</h3>
+              <p>
+                Fish, explore new areas, and progress at your own pace without
+                forcing everyone into the same activity.
+              </p>
+              <ul class="tag-list" aria-label="Game details">
+                <li>Solo friendly</li>
+                <li>Chill</li>
+                <li>Console</li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="game-card"
+            data-title="Pressure"
+            data-min-players="1"
+            data-max-players="8"
+            data-moods="scary,adventure"
+            data-devices="mobile,computer,console"
+            data-private="true"
+          >
+            <div class="game-icon icon-pressure" aria-hidden="true">P</div>
+            <div class="game-copy">
+              <p class="match-label">Good starting match</p>
+              <h3>Pressure</h3>
+              <p>
+                A tense co-op run through an underwater facility where the
+                group learns from failed attempts.
+              </p>
+              <ul class="tag-list" aria-label="Game details">
+                <li>1–8 players</li>
+                <li>Scary</li>
+                <li>Free private</li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="game-card"
+            data-title="Cleaning Simulator"
+            data-min-players="1"
+            data-max-players="4"
+            data-moods="funny,chill"
+            data-devices="mobile,computer"
+            data-private="true"
+          >
+            <div class="game-icon icon-cleaning" aria-hidden="true">C</div>
+            <div class="game-copy">
+              <p class="match-label">Good starting match</p>
+              <h3>Cleaning Simulator</h3>
+              <p>
+                A smaller comedy game built around cleaning jobs, strange
+                locations, and simple co-op progress.
+              </p>
+              <ul class="tag-list" aria-label="Game details">
+                <li>1–4 players</li>
+                <li>Funny</li>
+                <li>Hidden gem</li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="game-card"
+            data-title="Arsenal"
+            data-min-players="2"
+            data-max-players="12"
+            data-moods="competitive"
+            data-devices="mobile,computer,console"
+            data-private="true"
+          >
+            <div class="game-icon icon-arsenal" aria-hidden="true">A</div>
+            <div class="game-copy">
+              <p class="match-label">Good starting match</p>
+              <h3>Arsenal</h3>
+              <p>
+                Fast rounds, frequent weapon changes, and immediate rematches
+                for groups that want direct competition.
+              </p>
+              <ul class="tag-list" aria-label="Game details">
+                <li>2–12 players</li>
+                <li>Competitive</li>
+                <li>Console</li>
+              </ul>
+            </div>
+          </article>
+
+          <article
+            class="game-card"
+            data-title="Work at a Pizza Place"
+            data-min-players="1"
+            data-max-players="12"
+            data-moods="funny,chill"
+            data-devices="mobile,computer,console"
+            data-private="true"
+          >
+            <div class="game-icon icon-pizza" aria-hidden="true">W</div>
+            <div class="game-copy">
+              <p class="match-label">Good starting match</p>
+              <h3>Work at a Pizza Place</h3>
+              <p>
+                Pick different jobs, make a mess with friends, or work together
+                long enough to finish an order correctly.
+              </p>
+              <ul class="tag-list" aria-label="Game details">
+                <li>Large groups</li>
+                <li>Chill</li>
+                <li>Free private</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div id="empty-state" class="empty-state" hidden>
+          <h3>No games meet every requirement.</h3>
+          <p>Remove a dealbreaker or reset the choices to see more games.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        This is a reduced portfolio demo. The full catalog and production
+        source are not included.
+      </p>
+      <a href="https://lobbypick.com">Open the live LobbyPick website</a>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
