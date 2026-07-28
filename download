@@ -1,0 +1,50 @@
+/*
+  Small public sample from the phone-layout approach.
+  Production selectors and theme rules are reduced for the case study.
+*/
+
+@media (max-width: 767px) {
+  html {
+    overflow-x: hidden;
+    font-size: 16px;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  main,
+  footer {
+    width: calc(100% - 24px);
+    margin-inline: auto;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 26px 16px 18px;
+    border-radius: 18px;
+  }
+
+  .finder-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  button,
+  select,
+  input,
+  .button-link {
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+
+  .result-card {
+    grid-template-columns: 1fr;
+  }
+}
+
